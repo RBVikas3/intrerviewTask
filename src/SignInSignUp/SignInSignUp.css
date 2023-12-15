@@ -53,6 +53,7 @@ button{
 }
 .add-container{
     margin-bottom: 12px;
-    border-bottom: 1px solid green;
+    padding: 1rem;
+    border: 1px solid green;
 
 }
