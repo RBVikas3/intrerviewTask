@@ -75,7 +75,7 @@ const Home = () => {
 
         setAllData(reorderedData);
     };
-
+    const generateDroppableId = () => `my-unique-droppable-${Date.now()}`;
     return (
         <>
             <h1>Home</h1>
@@ -115,7 +115,7 @@ const Home = () => {
             </div>
             <div style={{ marginTop: "12px" }}>
                 <DragDropContext onDragEnd={handleDragEnd}>
-                    <Droppable droppableId='my-unique-droppable'>
+                    <Droppable droppableId={generateDroppableId()}>
                         {(provided) => (
                             <div
                                 {...provided.droppableProps}
@@ -165,32 +165,41 @@ const Home = () => {
                 </DragDropContext>
             </div>
             {editItem && (
-                <div className='edit-modal'>
-                    <h2>Edit Item</h2>
-                    <label>
-                        <strong>Edited Name</strong>
-                    </label>
-                    <input
-                        type='text'
-                        value={editedName}
-                        onChange={(e) => setEditedName(e.target.value)}
-                        placeholder='Enter an Image Name'
-                    />
-                    <label>
-                        <strong>Edited Profile Picture</strong>
-                    </label>
-                    <FilePond
-                        files={editedProfilePic}
-                        onupdatefiles={setEditedProfilePic}
-                        allowReorder={true}
-                        allowReplace={true}
-                        allowMultiple={false}
-                        maxFiles={1}
-                        credits={false}
-                        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-                    />
-                    <button onClick={handleSaveEdit}>Save</button>
-                    <button onClick={() => setEditItem(null)}>Cancel</button>
+                <div className='edit-modal' style={{ display: "flex", flexDirection: "column" }}>
+                    <div style={{ marginTop: "12px", marginBottom: "12px", }}>
+                        <label style={{ marginRight: "12px" }}>Update Name</label>
+                        <input
+                            type='text'
+                            value={editedName}
+                            onChange={(e) => setEditedName(e.target.value)}
+                            placeholder='Enter an Image Name'
+                        />
+
+                    </div>
+                    <div>
+
+                        <FilePond
+                            files={editedProfilePic}
+                            onupdatefiles={setEditedProfilePic}
+                            allowReorder={true}
+                            allowReplace={true}
+                            allowMultiple={false}
+                            maxFiles={1}
+                            credits={false}
+                            labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+                        />
+                    </div>
+                    <div style={{ maxWidth: "900px", margin: "0px auto", display: "flex", gap: "3rem" }}>
+                        <div style={{}}>
+
+                            <button style={{ background: "green", width: "100%", color: "white" }} onClick={handleSaveEdit}>Save</button>
+                        </div>
+                        <div>
+                            <button style={{ background: "red", width: "100%", color: "white" }} onClick={() => setEditItem(null)}>Cancel</button>
+
+                        </div>
+
+                    </div>
                 </div>
             )}
         </>
