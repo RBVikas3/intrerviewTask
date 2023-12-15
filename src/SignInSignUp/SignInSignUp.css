@@ -1,0 +1,58 @@
+*{
+    text-align: center;
+
+}
+.container{
+    margin-top: 100px;
+}
+.input_space{
+    margin-bottom: 10px;
+}
+input{
+    height: 30px;
+    width: 20%;
+    font-size: 18px;
+
+}
+
+button{
+    height: 30px;
+    width: 15%;
+    background-color: grey;
+    border: none;
+
+}
+.logout{
+    margin-right: 5px;
+    color: white;
+    font-weight: 500;
+    
+
+}
+.delete{
+    margin-right: 5px;
+    color: white;
+    background: rgb(9, 7, 127);
+    font-weight: 500;
+
+
+}
+.main-conatiner{
+    max-width: 1500px;
+    margin: auto 0px;
+    background: grey;
+    border: 1px solid white;
+    padding: 2rem;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+.uplode-conatiner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-container{
+    margin-bottom: 12px;
+    border-bottom: 1px solid green;
+
+}
